@@ -2,7 +2,7 @@
 
 Welcome to the repository for **Task 6**, where you’ll learn how to deploy a cool, modern static website using **GitHub Pages** 🚀.
 
-![Website Screenshot](https://placehold.co/800x400/3a5a40/fff?text=My+Cool+Site+Screenshot) <!-- Update this link with an actual screenshot if you like! -->
+<img width="1366" height="468" alt="image" src="https://github.com/user-attachments/assets/c9cb8ba0-1183-4d4e-bdab-99a6bf958baf" />
 
 ---
 
