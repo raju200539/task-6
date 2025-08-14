@@ -1,119 +1,199 @@
 :root {
-    --primary: #3a5a40;
-    --secondary: #588157;
+    --primary: #388e3c;
+    --secondary: #22223b;
     --accent: #f7b801;
-    --bg: #f3f7f0;
-    --text: #22223b;
-    --shadow: 0 4px 16px rgba(60, 90, 64, 0.07);
+    --bg: #f3f6fa;
+    --glass-bg: rgba(255,255,255,0.85);
+    --glass-blur: 14px;
+    --shadow: 0 8px 32px rgba(56,142,60,0.12), 0 1.5px 5px rgba(34,34,59,0.08);
+    --border: 1.5px solid #e0e4ea;
+    --link-hover: #388e3c;
+    --github-btn-bg: #22223b;
+    --github-btn-color: #fff;
+    --github-btn-hover: #3a5a40;
 }
 
 html, body {
     margin: 0;
     padding: 0;
     background: var(--bg);
-    color: var(--text);
-    font-family: 'Segoe UI', Verdana, Arial, sans-serif;
+    color: var(--secondary);
+    font-family: 'Inter', Arial, sans-serif;
     min-height: 100vh;
 }
 
 .container {
-    max-width: 540px;
-    background: #fff;
-    margin: 2.5em auto 0 auto;
+    max-width: 650px;
+    margin: 3.5em auto 0 auto;
     padding: 2.5em 2em 2em 2em;
-    border-radius: 1.2em;
+    border-radius: 1.4em;
     box-shadow: var(--shadow);
-    animation: fadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
+
+.glass {
+    background: var(--glass-bg);
+    border: var(--border);
+    backdrop-filter: blur(var(--glass-blur));
 }
 
 header {
     text-align: center;
-    margin-bottom: 1.5em;
+    margin-bottom: 1.7em;
 }
 
 .logo {
-    font-size: 2.5em;
-    display: block;
-    margin-bottom: 0.2em;
-    animation: float 2.5s infinite ease-in-out;
+    font-size: 2.6em;
+    display: inline-block;
+    margin-bottom: 0.1em;
+    transition: transform 0.35s cubic-bezier(.47,1.64,.41,.8);
+    cursor: pointer;
+}
+.logo:hover {
+    transform: rotate(-15deg) scale(1.16);
+    filter: drop-shadow(0 4px 12px #388e3c33);
 }
 
 h1 {
     color: var(--primary);
-    font-size: 2em;
-    margin: 0;
+    font-size: 2.1em;
+    margin: 0.1em 0 0 0;
+    font-weight: 700;
+    letter-spacing: 0.01em;
 }
 
 .subtitle {
-    font-size: 1.15em;
+    font-size: 1.18em;
     color: var(--secondary);
     text-align: center;
+    margin-bottom: 1.3em;
 }
 
 .features {
     list-style: none;
     padding: 0;
-    margin: 1.3em 0 1.5em 0;
-    font-size: 1.13em;
+    margin: 0 0 1.9em 0;
+    font-size: 1.12em;
 }
-
 .features li {
-    padding: 0.5em 0;
-    position: relative;
-    padding-left: 1.5em;
-    transition: background 0.2s;
-    border-radius: 0.5em;
+    padding: 0.5em 0 0.5em 0.5em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-weight: 500;
+}
+.features li span {
+    font-size: 1em;
 }
 
-.features li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: var(--accent);
-    font-weight: bold;
-}
-
-.features li a {
-    color: var(--primary);
+.github-btn {
+    display: inline-block;
+    background: var(--github-btn-bg);
+    color: var(--github-btn-color);
+    padding: 0.68em 1.32em;
+    border-radius: 0.6em;
+    font-size: 1.09em;
+    font-weight: 600;
+    margin-bottom: 1.8em;
+    margin-top: 0.4em;
     text-decoration: none;
-    border-bottom: 1px dotted var(--accent);
-    transition: color 0.2s;
+    box-shadow: 0 2px 8px #22223b14;
+    transition: background 0.18s, transform 0.18s, box-shadow 0.2s;
+    border: none;
 }
-.features li a:hover {
+.github-btn:hover, .github-btn:focus {
+    background: var(--github-btn-hover);
     color: var(--accent);
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 24px #388e3c33;
 }
 
 .callout {
-    background: var(--bg);
-    color: var(--secondary);
+    background: #f9fafb;
+    color: var(--primary);
     border-left: 4px solid var(--primary);
-    padding: 0.9em 1em;
-    margin: 1.5em 0;
-    border-radius: 0.4em;
+    padding: 1em 1.2em;
+    margin: 1.2em 0 0 0;
+    border-radius: 0.55em;
     font-size: 1em;
-    box-shadow: 0 2px 8px rgba(60, 90, 64, 0.04);
+    box-shadow: 0 2px 8px #3a5a4012;
     transition: box-shadow 0.3s;
+    font-weight: 500;
 }
 
 footer {
     text-align: center;
-    margin-top: 2.5em;
+    margin-top: 2.7em;
     color: #888;
-    font-size: 0.95em;
+    font-size: 1em;
+    font-weight: 400;
 }
 
 footer a {
-    color: var(--secondary);
+    color: var(--primary);
     text-decoration: none;
     border-bottom: 1px dashed var(--accent);
+    transition: color 0.2s;
+}
+footer a:hover {
+    color: var(--accent);
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; transform: translateY(1.5em);}
-    100% { opacity: 1; transform: none;}
+hr {
+    border: 0;
+    border-top: 1px solid #e3e3e3;
+    margin: 2.5em 0 1.2em 0;
 }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0);}
-    50% { transform: translateY(-10px);}
+@media (max-width: 700px) {
+    .container {
+        margin: 1.2em 0 0 0;
+        padding: 1.6em 0.5em;
+        max-width: 97vw;
+    }
+    h1 {
+        font-size: 1.28em;
+    }
+}
+
+@media (max-width: 450px) {
+    .container {
+        padding: 0.7em 0.2em;
+    }
+    .features li {
+        font-size: 0.94em;
+    }
+}
+
+@media (max-width: 340px) {
+    .container {
+        padding: 0.2em 0.1em;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background: #f3f6fa;
+}
+::-webkit-scrollbar-thumb {
+    background: #e0e4ea;
+    border-radius: 4px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #191b23;
+        --glass-bg: rgba(28,32,38,0.85);
+        --secondary: #f2f2ff;
+        --primary: #81c784;
+        --github-btn-bg: #22223b;
+        --github-btn-color: #fff;
+        --github-btn-hover: #1b5e20;
+    }
+    .callout {
+        background: #22223b22;
+        color: #81c784;
+    }
+    hr {
+        border-top: 1px solid #34384a;
+    }
 }
