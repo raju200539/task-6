@@ -1,15 +1,119 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f6f8fa;
-    color: #22223b;
+:root {
+    --primary: #3a5a40;
+    --secondary: #588157;
+    --accent: #f7b801;
+    --bg: #f3f7f0;
+    --text: #22223b;
+    --shadow: 0 4px 16px rgba(60, 90, 64, 0.07);
+}
+
+html, body {
     margin: 0;
-    padding: 2em;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', Verdana, Arial, sans-serif;
+    min-height: 100vh;
 }
-h1 {
-    color: #3a5a40;
+
+.container {
+    max-width: 540px;
+    background: #fff;
+    margin: 2.5em auto 0 auto;
+    padding: 2.5em 2em 2em 2em;
+    border-radius: 1.2em;
+    box-shadow: var(--shadow);
+    animation: fadeIn 1.2s cubic-bezier(.68,-0.55,.27,1.55);
 }
-footer {
-    margin-top: 2em;
+
+header {
     text-align: center;
-    color: #6c757d;
+    margin-bottom: 1.5em;
+}
+
+.logo {
+    font-size: 2.5em;
+    display: block;
+    margin-bottom: 0.2em;
+    animation: float 2.5s infinite ease-in-out;
+}
+
+h1 {
+    color: var(--primary);
+    font-size: 2em;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 1.15em;
+    color: var(--secondary);
+    text-align: center;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin: 1.3em 0 1.5em 0;
+    font-size: 1.13em;
+}
+
+.features li {
+    padding: 0.5em 0;
+    position: relative;
+    padding-left: 1.5em;
+    transition: background 0.2s;
+    border-radius: 0.5em;
+}
+
+.features li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.features li a {
+    color: var(--primary);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent);
+    transition: color 0.2s;
+}
+.features li a:hover {
+    color: var(--accent);
+}
+
+.callout {
+    background: var(--bg);
+    color: var(--secondary);
+    border-left: 4px solid var(--primary);
+    padding: 0.9em 1em;
+    margin: 1.5em 0;
+    border-radius: 0.4em;
+    font-size: 1em;
+    box-shadow: 0 2px 8px rgba(60, 90, 64, 0.04);
+    transition: box-shadow 0.3s;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2.5em;
+    color: #888;
+    font-size: 0.95em;
+}
+
+footer a {
+    color: var(--secondary);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--accent);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(1.5em);}
+    100% { opacity: 1; transform: none;}
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-10px);}
 }
